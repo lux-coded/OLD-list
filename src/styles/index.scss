@@ -1,0 +1,11 @@
+body {
+  background-color: rgb(230, 230, 230);
+  padding: 0 25%;
+  font-family: 'Roboto Mono';
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    padding: 1rem;
+  }
+}
