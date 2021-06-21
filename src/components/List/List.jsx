@@ -23,7 +23,7 @@ const List = ({ listData }) => {
       <button disabled={pageState === 2}  onClick={() => setPageState(pageState + 1)} >
         Next set
       </button>
-      
+
       {
         renderListSet(pageState)
       }
