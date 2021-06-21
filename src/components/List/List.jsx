@@ -4,10 +4,11 @@ import ListItem from './ListItem/ListItem';
 import './List.scss';
 
 const List = ({ listData }) => {
-  const [ listState, setListState ] = useState(false);
+  const [ pageState, setPageState ] = useState(0);
 
-  const renderList = () => {
-    return listData.map((artist) => {
+  const renderListSet = (page) => {
+    let pagePoint = page * 5;
+    return listData.slice(pagePoint, pagePoint + 5).map((artist) => {
       return (
         <ListItem artist={artist}/>
       );
@@ -16,16 +17,15 @@ const List = ({ listData }) => {
 
   return (
     <section>
-      <button
-        onClick={() =>
-          setListState(!listState)}>{listState ? 'Show Less' : 'Show More'
-        }
+      <button disabled={pageState === 0} onClick={() => setPageState(pageState - 1)} >
+        Previous set
       </button>
+      <button disabled={pageState === 2}  onClick={() => setPageState(pageState + 1)} >
+        Next set
+      </button>
+      
       {
-        listState ?
-          renderList().slice()
-        :
-          renderList().slice(0, 5)
+        renderListSet(pageState)
       }
     </section>
   );
