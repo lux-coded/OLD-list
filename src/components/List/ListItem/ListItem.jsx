@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Rating from '@material-ui/lab/Rating';
 
-const ListItem = ({ artist }) => {
+const ListItem = ({ artist, page }) => {
   const [ ratingValue, setRatingValue ] = useState(0);
   const [ clicked, setClicked ] = useState(false);
+
+  useEffect(() => {
+    setClicked(false);
+  }, [page])
 
   return (
     <article key={artist.id}>

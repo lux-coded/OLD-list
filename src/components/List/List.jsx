@@ -10,7 +10,7 @@ const List = ({ listData }) => {
     let pagePoint = page * 5;
     return listData.slice(pagePoint, pagePoint + 5).map((artist) => {
       return (
-        <ListItem artist={artist}/>
+        <ListItem page={pageState} artist={artist}/>
       );
     });
   }
